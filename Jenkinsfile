@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGE_NAME = "paterne/static-website"
+        IMAGE_NAME = "alpinehelloworld"
         IMAGE_TAG = "latest"
         CONTAINER = "website"
         CONTAINER_DYNOS_HEROKU = "web1"
