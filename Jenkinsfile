@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGE_NAME = "staticwebsite"
+        IMAGE_NAME = "staticweb"
         IMAGE_TAG = "latest"
         CONTAINER = "website"
         CONTAINER_DYNOS_HEROKU = "web1"
