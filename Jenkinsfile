@@ -1,12 +1,12 @@
 pipeline {
     environment {
-        IMAGE_NAME = "alpinehelloworld"
+        IMAGE_NAME = "staticwebsite"
         IMAGE_TAG = "latest"
         CONTAINER = "website"
         CONTAINER_DYNOS_HEROKU = "web1"
         STAGING = "paterne-staging"
         PRODCUTION = "paterne-production"
-        LOCALHOST_DOCKER_NETWORK = "192.168.56.8"
+        LOCALHOST_DOCKER_NETWORK = "127.17.0.1"
     }
     agent none
     
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker run -d -p 3000:80 --name $CONTAINER ${IMAGE_NAME}:${IMAGE_TAG}
+                    docker run -d -p 50000:80 --name $CONTAINER ${IMAGE_NAME}:${IMAGE_TAG}
                     sleep 5
                     '''
                 }
@@ -35,7 +35,7 @@ pipeline {
             agent any
             steps {
                 script {
-                    sh 'curl http://$LOCALHOST_DOCKER_NETWORK:3000 | grep -q "Enjoy"'
+                    sh 'curl http://$LOCALHOST_DOCKER_NETWORK:50000 | grep -q "Dimension"'
                 }
             } 
         }

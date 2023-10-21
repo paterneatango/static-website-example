@@ -5,6 +5,6 @@ RUN apt-get update && \
     apt-get install -y curl && \
     apt-get install -y git
 RUN rm -Rf /usr/share/nginx/html/*
-RUN git clone https://github.com/Athuro04/static-website-example.git /usr/share/nginx/html
+RUN git clone https://github.com/paterneatango/static-website-example.git /usr/share/nginx/html
 #COPY nginx.conf  /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
