@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker run -d -p 50000:80 --name $CONTAINER ${IMAGE_NAME}:${IMAGE_TAG}
+                    docker run -d -p 3000:80 --name $CONTAINER ${IMAGE_NAME}:${IMAGE_TAG}
                     sleep 5
                     '''
                 }
@@ -35,7 +35,7 @@ pipeline {
             agent any
             steps {
                 script {
-                    sh 'curl http://$LOCALHOST_DOCKER_NETWORK:50000 | grep -q "Dimension"'
+                    sh 'curl http://$LOCALHOST_DOCKER_NETWORK:3000 | grep -q "Dimension"'
                 }
             } 
         }
